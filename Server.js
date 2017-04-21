@@ -581,11 +581,12 @@ Server.prototype = {
 				testedCapabilities.touchEnabled = false;
 			}
 
-			if (!('dynamicViewport' in capabilities)) {
-				testedCapabilities.dynamicViewport = session.getWindowSize().then(function (originalSize) {
-					return session.setWindowSize(originalSize.width, originalSize.height);
-				}).then(supported, unsupported);
-			}
+			// Firefox 53 has problems with this... :(
+			// if (!('dynamicViewport' in capabilities)) {
+			// 	testedCapabilities.dynamicViewport = session.getWindowSize().then(function (originalSize) {
+			// 		return session.setWindowSize(originalSize.width, originalSize.height);
+			// 	}).then(supported, unsupported);
+			// }
 
 			// At least Internet Explorer 11 and earlier do not allow data URIs to be used for navigation
 			testedCapabilities.supportsNavigationDataUris = function () {
