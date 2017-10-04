@@ -834,7 +834,7 @@ Session.prototype = {
 	switchToWindow: function (handle) {
 		return this._post('window', {
 			// TODO: Note that in the W3C standard, the property is 'handle'
-			name: handle
+			handle: handle
 		}).then(noop);
 	},
 
